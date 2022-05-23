@@ -3,6 +3,8 @@ ARG FROM_TAG=4.0-20220520
 
 FROM ${FROM_NAME}:${FROM_TAG}
 
+LABEL maintainer "adam.jian.zhang@gmail.com"
+
 # elixir expects utf8.
 ENV ELIXIR_VERSION="v1.13.4" \
     LANG=en_US.UTF-8 \
