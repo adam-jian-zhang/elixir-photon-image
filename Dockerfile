@@ -1,9 +1,15 @@
 ARG FROM_NAME=photon
-ARG FROM_TAG=4.0-20220520 
+ARG FROM_TAG=4.0-20230325
+
 
 FROM ${FROM_NAME}:${FROM_TAG}
 
-LABEL maintainer "adam.jian.zhang@gmail.com"
+ARG BUILD_DATE
+
+LABEL build-date=$BUILD_DATE
+
+LABEL maintainer "adamz@vmware.com"
+LABEL name "Elixir Image based on Photon OS x86_64/4.0"
 
 # elixir expects utf8.
 ENV ELIXIR_VERSION="v1.14.3" \
