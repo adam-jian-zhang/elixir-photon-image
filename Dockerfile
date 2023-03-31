@@ -6,7 +6,7 @@ FROM ${FROM_NAME}:${FROM_TAG}
 LABEL maintainer "adam.jian.zhang@gmail.com"
 
 # elixir expects utf8.
-ENV ELIXIR_VERSION="v1.13.4" \
+ENV ELIXIR_VERSION="v1.14.3" \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8\
@@ -28,7 +28,7 @@ RUN mkdir -p "$HOME" && chown -R default:default /opt/app
 
 RUN set -xe \
     && ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/${ELIXIR_VERSION}.tar.gz" \
-    && ELIXIR_DOWNLOAD_SHA256="95daf2dd3052e6ca7d4d849457eaaba09de52d65ca38d6933c65bc1cdf6b8579" \
+    && ELIXIR_DOWNLOAD_SHA256="bd464145257f36bd64f7ba8bed93b6499c50571b415c491b20267d27d7035707" \
     && curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL \
     && echo "$ELIXIR_DOWNLOAD_SHA256  elixir-src.tar.gz" | sha256sum -c - \
     && mkdir -p /usr/local/src/elixir \
