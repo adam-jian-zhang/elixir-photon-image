@@ -1,5 +1,5 @@
 ARG FROM_NAME=photon
-ARG FROM_TAG=4.0-20230408
+ARG FROM_TAG=4.0-20230715
 
 
 FROM ${FROM_NAME}:${FROM_TAG}
@@ -12,7 +12,7 @@ LABEL maintainer "adamz@vmware.com"
 LABEL name "Elixir Image based on Photon OS x86_64/4.0"
 
 # elixir expects utf8.
-ENV ELIXIR_VERSION="v1.14.3" \
+ENV ELIXIR_VERSION="v1.15.4" \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8\
@@ -34,7 +34,7 @@ RUN mkdir -p "$HOME" && chown -R default:default /opt/app
 
 RUN set -xe \
     && ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/${ELIXIR_VERSION}.tar.gz" \
-    && ELIXIR_DOWNLOAD_SHA256="bd464145257f36bd64f7ba8bed93b6499c50571b415c491b20267d27d7035707" \
+    && ELIXIR_DOWNLOAD_SHA256="302bf8065ab792a88f6c3a0c01a6bb58737be3e4fc2564c8afd418bf9792501c" \
     && curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL \
     && echo "$ELIXIR_DOWNLOAD_SHA256  elixir-src.tar.gz" | sha256sum -c - \
     && mkdir -p /usr/local/src/elixir \
