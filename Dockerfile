@@ -25,6 +25,7 @@ RUN tdnf install -y erlang \
     gzip \
     make \
     shadow \
+    git \
     && rm -rf /var/cache/tdnf
 
 RUN groupadd --gid 999 --system default; \
