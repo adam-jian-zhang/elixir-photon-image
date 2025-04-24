@@ -12,7 +12,7 @@ LABEL maintainer="adam.jian.zhang@gmail.com"
 LABEL name="Elixir Image based on Photon OS x86_64/5.0"
 
 # elixir expects utf8.
-ENV ELIXIR_VERSION="v1.17.3" \
+ENV ELIXIR_VERSION="v1.18.3" \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8\
@@ -35,7 +35,7 @@ RUN mkdir -p "$HOME" && chown -R default:default /opt/app
 
 RUN set -xe \
     && ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/refs/tags/${ELIXIR_VERSION}.tar.gz" \
-    && ELIXIR_DOWNLOAD_SHA256="6116c14d5e61ec301240cebeacbf9e97125a4d45cd9071e65e0b958d5ebf3890" \
+    && ELIXIR_DOWNLOAD_SHA256="f8d4376311058dd9a78ed365fa1df9fd1b22d2468c587e3f0f4fb320283a1ed7" \
     && curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL \
     && echo "$ELIXIR_DOWNLOAD_SHA256  elixir-src.tar.gz" | sha256sum -c - \
     && mkdir -p /usr/local/src/elixir \
